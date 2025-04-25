@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">GPSテスト</string>
-    <string name="title_home">ホーム</string>
+    <string name="title_home">状態</string>
     <string name="title_dashboard">速度</string>
     <string name="title_notifications">コンパス</string>
     <string name="start">開始</string>
@@ -86,11 +86,12 @@
         <item>ドイツ語</item>
         <item>フランス語</item>
     </string-array>
-    <string name="settings">Settings</string>
-    <string name="about">About</string>
-    <string name="dark_mode">Dark mode</string>
+    <string name="settings">設定</string>
+    <string name="about">について</string>
+    <string name="dark_mode">ダークモード</string>
     <string name="notifications">通知</string>
     <string name="language">言語</string>
     <string name="general_settings">一般設定</string>
     <string name="enable_notifica">通知を有効にする</string>
+    <string name="auto_start">自動開始</string>
 </resources>

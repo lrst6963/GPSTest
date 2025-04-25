@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="?attr/colorSurface">
 
     <!-- 横向基准线 (顶部30%) -->
     <androidx.constraintlayout.widget.Guideline
@@ -22,56 +23,67 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-    <!-- GPS状态和卫星数量box -->
-    <LinearLayout
+    <!-- GPS状态和卫星数量box - 改为MaterialCardView -->
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/gpsStatusBox"
+        style="@style/CardStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_box_border_dark"
-        android:orientation="horizontal"
-        android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.9">
+        app:layout_constraintWidth_percent="0.9"
+        app:cardElevation="4dp"
+        app:strokeColor="?attr/colorOutline"
+        app:strokeWidth="1dp">
 
-        <!-- GPS状态显示 -->
-        <TextView
-            android:id="@+id/tvGpsStatus"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="GPS: --"
-            android:textColor="@color/green"
-            android:textSize="14sp"
-            tools:text="GPS: 强(80%)" />
+            android:orientation="horizontal"
+            android:padding="12dp">
 
-        <!-- 卫星数量显示 -->
-        <TextView
-            android:id="@+id/tvSatellites"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="卫星数:0/0"
-            android:textColor="#CCCCCC"
-            android:textSize="14sp"
-            tools:text="卫星数:8/12" />
-    </LinearLayout>
+            <!-- GPS状态显示 -->
+            <TextView
+                android:id="@+id/tvGpsStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="GPS: --"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?attr/colorPrimary"
+                tools:text="GPS: 强(80%)" />
 
-    <FrameLayout
+            <!-- 卫星数量显示 -->
+            <TextView
+                android:id="@+id/tvSatellites"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="卫星数:0/0"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="卫星数:8/12" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- 速度容器 - 改为MaterialCardView -->
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/speedContainer"
+        style="@style/CardStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/box_border"
         app:layout_constraintBottom_toTopOf="@+id/infoBox"
         app:layout_constraintDimensionRatio="13:6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/gpsStatusBox"
-        app:layout_constraintWidth_percent="0.3">
+        app:layout_constraintWidth_percent="0.3"
+        app:cardElevation="8dp"
+        app:shapeAppearance="@style/ShapeAppearance.MediumComponent">
 
         <!-- 速度显示内容 -->
         <LinearLayout
@@ -86,8 +98,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 km/h"
-                android:textColor="@android:color/white"
-                android:textSize="45sp"
+                android:textAppearance="?attr/textAppearanceHeadlineLarge"
+                android:textColor="?attr/colorOnSurface"
                 tools:text="48 km/h" />
 
             <!-- 小速度显示 -->
@@ -97,128 +109,133 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="0 m/s"
-                android:textColor="#CCCCCC"
-                android:textSize="16sp"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?attr/colorOnSurfaceVariant"
                 tools:text="13.3 m/s" />
         </LinearLayout>
-    </FrameLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-    <!-- 信息框 -->
-    <LinearLayout
+    <!-- 信息框 - 改为MaterialCardView -->
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/infoBox"
+        style="@style/CardStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/rounded_box_border_dark"
-        android:orientation="vertical"
-        android:padding="18dp"
         app:layout_constraintBottom_toTopOf="@id/btnControl"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/speedContainer"
-        app:layout_constraintWidth_percent="0.9">
+        app:layout_constraintWidth_percent="0.9"
+        app:cardElevation="4dp">
 
-        <!-- 设置为链式布局 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintHorizontal_chainStyle="spread_inside">
+            android:orientation="vertical"
+            android:padding="18dp">
 
-            <TextView
-                android:id="@+id/tvTime"
-                android:layout_width="0dp"
+            <!-- 设置为链式布局 -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="时间：00:00:00"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                tools:text="时间：12:34:56" />
+                android:orientation="horizontal"
+                app:layout_constraintHorizontal_chainStyle="spread_inside">
 
-            <TextView
-                android:id="@+id/tvMaxSpeed"
-                android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/tvTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="时间：00:00:00"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?attr/colorOnSurface"
+                    tools:text="时间：12:34:56" />
+
+                <TextView
+                    android:id="@+id/tvMaxSpeed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="最高：0 km/h"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?attr/colorOnSurface"
+                    tools:text="最高：72 km/h" />
+            </LinearLayout>
+
+            <!-- 设置为链式布局 -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:text="最高：0 km/h"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                tools:text="最高：72 km/h" />
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                app:layout_constraintHorizontal_chainStyle="spread_inside">
+
+                <TextView
+                    android:id="@+id/tvDistance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="距离：0 km"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?attr/colorOnSurface"
+                    tools:text="距离：5.2 km" />
+
+                <TextView
+                    android:id="@+id/tvAvgSpeed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="平均：- km/h"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?attr/colorOnSurface"
+                    tools:text="平均：32 km/h" />
+            </LinearLayout>
+
+            <!-- 设置为链式布局 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                app:layout_constraintHorizontal_chainStyle="spread_inside">
+
+                <TextView
+                    android:id="@+id/tvDirection"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="方向: 0°"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?attr/colorOnSurface"
+                    tools:text="方向: NE 45°" />
+
+                <TextView
+                    android:id="@+id/tvAltitude"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="海拔: 0米"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?attr/colorOnSurface"
+                    tools:text="海拔: 256米" />
+            </LinearLayout>
         </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-        <!-- 设置为链式布局 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="horizontal"
-            app:layout_constraintHorizontal_chainStyle="spread_inside">
-
-            <TextView
-                android:id="@+id/tvDistance"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="距离：0 km"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                tools:text="距离：5.2 km" />
-
-            <TextView
-                android:id="@+id/tvAvgSpeed"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:text="平均：- km/h"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                tools:text="平均：32 km/h" />
-        </LinearLayout>
-
-        <!-- 设置为链式布局 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="horizontal"
-            app:layout_constraintHorizontal_chainStyle="spread_inside">
-
-            <TextView
-                android:id="@+id/tvDirection"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="方向: 0°"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                tools:text="方向: NE 45°" />
-
-            <TextView
-                android:id="@+id/tvAltitude"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:text="海拔: 0米"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                tools:text="海拔: 256米" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- 主控制按钮 -->
-    <Button
+    <!-- 主控制按钮 - 改为MaterialButton -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnControl"
+        style="@style/Widget.Material3.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/rounded_button_background"
         android:minHeight="60dp"
         android:text="@string/start"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textAppearance="?attr/textAppearanceLabelLarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoBox"
@@ -237,27 +254,27 @@
         app:layout_constraintTop_toBottomOf="@+id/btnControl"
         app:layout_constraintWidth_percent="0.9">
 
-        <Button
+        <!-- 改为MaterialButton -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnReset"
+            style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:background="@drawable/rounded_button_background"
             android:text="@string/reset"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
+            android:textAppearance="?attr/textAppearanceLabelMedium" />
 
-        <Button
+        <!-- 改为MaterialButton -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPause"
+            style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:background="@drawable/rounded_button_background"
             android:text="暂停"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
+            android:textAppearance="?attr/textAppearanceLabelMedium" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

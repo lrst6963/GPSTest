@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">GPS测试</string>
-    <string name="title_home">主测试</string>
+    <string name="title_home">状态</string>
     <string name="title_dashboard">速度表</string>
     <string name="title_notifications">指南针</string>
     <string name="start">开始</string>
@@ -88,4 +88,5 @@
     <string name="language">语言</string>
     <string name="general_settings">通用设置</string>
     <string name="enable_notifica">通知启用</string>
+    <string name="auto_start">自动开始</string>
 </resources>

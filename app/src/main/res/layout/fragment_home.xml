@@ -1,40 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurfaceVariant"
+    android:padding="16dp">
 
-    <TextView
-        android:id="@+id/tvLocationInfo"
+    <!-- 信息卡片 -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardLocationInfo"
+        style="@style/CardStyle"
         android:layout_width="0dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:fontFamily="monospace"
-        android:gravity="start"
-        android:lineSpacingExtra="4dp"
-        android:padding="16dp"
-        android:text="@string/thewaitbegin"
-        android:textIsSelectable="true"
-        android:textSize="14sp"
+        android:layout_height="250dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
+        <TextView
+            android:id="@+id/tvLocationInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="monospace"
+            android:gravity="start"
+            android:lineSpacingExtra="4dp"
+            android:padding="16dp"
+            android:text="@string/thewaitbegin"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurface"
+            android:textIsSelectable="true"
+            tools:text="............." />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- 主操作按钮 -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnToggle"
-        android:layout_width="130sp"
-        android:layout_height="70sp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/button_default"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="26mm"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:minWidth="180dp"
+        android:minHeight="60dp"
         android:text="@string/start"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textAppearance="?attr/textAppearanceLabelLarge"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        app:iconTint="?attr/colorOnPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvLocationInfo" />
+        app:layout_constraintTop_toBottomOf="@id/cardLocationInfo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

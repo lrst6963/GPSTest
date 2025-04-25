@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,15 +15,18 @@ import androidx.preference.PreferenceManager;
 
 import com.Lrst6963.GPSTest.tools.LocaleHelper;
 import com.example.myapplication.R;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class SettingsActivity extends BaseActivity {
 
     private static final String KEY_NOTIFICATIONS_ENABLED = "pref_notifications_enabled";
     private static final String KEY_DARK_MODE_ENABLED = "pref_dark_mode_enabled";
     private static final String KEY_SELECTED_LANGUAGE = "pref_selected_language";
+    private static final String KEY_MAIN_AUTO_START = "pref_auto_start";
 
-    private Switch switchNotifications;
-    private Switch switchDarkMode;
+    private SwitchMaterial switchNotifications;
+    private SwitchMaterial switchDarkMode;
+    private SwitchMaterial switchAutoStart;
     private TextView tvLanguageValue;
     private TextView tvVersion;
     private SharedPreferences sharedPreferences;
@@ -53,6 +55,7 @@ public class SettingsActivity extends BaseActivity {
 
         switchNotifications = findViewById(R.id.switch_notifications);
         switchDarkMode = findViewById(R.id.switch_dark_mode);
+        switchAutoStart = findViewById(R.id.switch_main_autostart);
         tvLanguageValue = findViewById(R.id.tv_language_value);
         tvVersion = findViewById(R.id.tv_version);
 
@@ -67,6 +70,7 @@ public class SettingsActivity extends BaseActivity {
     private void loadSettings() {
         switchNotifications.setChecked(sharedPreferences.getBoolean(KEY_NOTIFICATIONS_ENABLED, true));
         switchDarkMode.setChecked(sharedPreferences.getBoolean(KEY_DARK_MODE_ENABLED, false));
+        switchAutoStart.setChecked(sharedPreferences.getBoolean(KEY_MAIN_AUTO_START, false));
         tvLanguageValue.setText(sharedPreferences.getString(KEY_SELECTED_LANGUAGE, getString(R.string.language_default)));
     }
 
@@ -84,6 +88,10 @@ public class SettingsActivity extends BaseActivity {
             AppCompatDelegate.setDefaultNightMode(
                     isChecked ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO
             );
+        });
+
+        switchAutoStart.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            sharedPreferences.edit().putBoolean(KEY_MAIN_AUTO_START, isChecked).apply();
         });
 
         findViewById(R.id.layout_language).setOnClickListener(v -> showLanguageSelectionDialog());

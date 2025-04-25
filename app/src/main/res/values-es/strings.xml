@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">PruebaGPS</string>
-    <string name="title_home">Inicio</string>
+    <string name="title_home">Estado</string>
     <string name="title_dashboard">Velocidad</string>
     <string name="title_notifications">Brújula</string>
     <string name="start">Iniciar</string>
@@ -87,4 +87,5 @@
     <string name="language">idioma</string>
     <string name="general_settings">Configuración general</string>
     <string name="enable_notifica">Activar notificaciones</string>
+    <string name="auto_start">Inicio automático</string>
 </resources>

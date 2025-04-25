@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.location.Location;
 import android.os.Build;
@@ -24,6 +25,7 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 
 import com.example.myapplication.R;
 
@@ -34,6 +36,7 @@ import java.util.TimeZone;
 
 public class HomeFragment extends Fragment implements GpsTrackingService.GpsCallback {
     private static final String TAG = "HomeFragment";
+    private static final String KEY_MAIN_AUTO_START = "pref_auto_start";
     // 时间格式化
     private final SimpleDateFormat gpsTimeFormat =
             new SimpleDateFormat("MM-dd HH:mm:ss", Locale.getDefault());
@@ -42,12 +45,19 @@ public class HomeFragment extends Fragment implements GpsTrackingService.GpsCall
     private TextView tvLocationInfo;
     private Button btnToggle;
     private GpsTrackingService gpsTrackingService;
+    private SharedPreferences sharedPreferences;
     private final ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             GpsTrackingService.LocalBinder binder = (GpsTrackingService.LocalBinder) service;
             gpsTrackingService = binder.getService();
             gpsTrackingService.registerCallback(HomeFragment.this); // 注册回调
+
+            sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
+            if (sharedPreferences.getBoolean(KEY_MAIN_AUTO_START, true)) {
+                startLocationUpdates();
+                Log.e(TAG, "MAIN AUTO START");
+            }
             Log.d(TAG, "Service connected");
         }
 
@@ -66,12 +76,9 @@ public class HomeFragment extends Fragment implements GpsTrackingService.GpsCall
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-
         tvLocationInfo = root.findViewById(R.id.tvLocationInfo);
         btnToggle = root.findViewById(R.id.btnToggle);
-
         btnToggle.setOnClickListener(v -> toggleLocationUpdates());
-
         Log.d(TAG, "HomeFragment created");
         return root;
     }
@@ -98,16 +105,8 @@ public class HomeFragment extends Fragment implements GpsTrackingService.GpsCall
         try {
             if (isTracking) {
                 stopLocationUpdates();
-                btnToggle.setText(R.string.start_tracking);
-                btnToggle.setBackgroundTintList(
-                        ContextCompat.getColorStateList(requireContext(), R.color.purple_500));
-                Log.d(TAG, "Location updates stopped");
             } else {
                 startLocationUpdates();
-                btnToggle.setText(R.string.stop_tracking);
-                btnToggle.setBackgroundTintList(
-                        ContextCompat.getColorStateList(requireContext(), R.color.red_500));
-                Log.d(TAG, "Location updates started");
             }
         } catch (Exception e) {
             Log.e(TAG, "Error in toggleLocationUpdates: " + e.getMessage(), e);
@@ -118,6 +117,10 @@ public class HomeFragment extends Fragment implements GpsTrackingService.GpsCall
         if (gpsTrackingService != null) {
             isTracking = true;
             isLocationAvailable = false;
+            btnToggle.setText(R.string.stop_tracking);
+            btnToggle.setBackgroundTintList(
+                    ContextCompat.getColorStateList(requireContext(), R.color.red_500));
+            Log.d(TAG, "Location updates started");
             try {
                 updateLocationUI(null);
             } catch (Exception e) {
@@ -132,6 +135,10 @@ public class HomeFragment extends Fragment implements GpsTrackingService.GpsCall
         if (gpsTrackingService != null) {
             isTracking = false;
             isLocationAvailable = false;
+            btnToggle.setText(R.string.start_tracking);
+            btnToggle.setBackgroundTintList(
+                    ContextCompat.getColorStateList(requireContext(), R.color.md_dark_primary));
+            Log.d(TAG, "Location updates stopped");
             updateLocationUI(null); // 显示未连接时的占位符
         }
     }

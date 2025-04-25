@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Test GPS</string>
-    <string name="title_home">Accueil</string>
+    <string name="title_home">État</string>
     <string name="title_dashboard">Vitesse</string>
     <string name="title_notifications">Boussole</string>
     <string name="start">Démarrer</string>
@@ -86,4 +86,5 @@
     <string name="language">langue</string>
     <string name="general_settings">Paramètres généraux</string>
     <string name="enable_notifica">Activer les notifications</string>
+    <string name="auto_start">Démarrage automatique</string>
 </resources>
