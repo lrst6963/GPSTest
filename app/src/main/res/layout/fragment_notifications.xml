@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.Lrst6963.GPSTest.NotificationsFragment">
+
+    <!-- 指南针外圈（添加阴影提升层次感） -->
+    <ImageView
+        android:id="@+id/compass_outer_circle"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 指南针指针（添加动画插值器） -->
+    <ImageView
+        android:id="@+id/compass_needle"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:elevation="12dp"
+        android:src="@drawable/compass_needle"
+        app:layout_constraintBottom_toBottomOf="@id/compass_outer_circle"
+        app:layout_constraintEnd_toEndOf="@id/compass_outer_circle"
+        app:layout_constraintStart_toStartOf="@id/compass_outer_circle"
+        app:layout_constraintTop_toTopOf="@id/compass_outer_circle" />
+
+    <!-- 动态角度显示（添加文字阴影） -->
+    <TextView
+        android:id="@+id/compass_direction_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="北(0)"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowRadius="2"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/compass_outer_circle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

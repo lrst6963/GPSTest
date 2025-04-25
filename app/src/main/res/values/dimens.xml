@@ -1,0 +1,21 @@
+<resources>
+    <!-- 基础尺寸 -->
+    <dimen name="default_padding">8dp</dimen>
+    <dimen name="box_padding">12dp</dimen>
+    <dimen name="box_large_padding">24dp</dimen>
+
+    <!-- 间距系统 -->
+    <dimen name="space_small">4dp</dimen>
+    <dimen name="space_medium">8dp</dimen>
+    <dimen name="space_large">16dp</dimen>
+
+    <!-- 文字尺寸 -->
+    <dimen name="text_secondary">12sp</dimen>
+    <dimen name="text_primary">14sp</dimen>
+    <dimen name="text_speed_primary">48sp</dimen>
+    <dimen name="text_speed_secondary">18sp</dimen>
+    <dimen name="text_button_primary">20sp</dimen>
+
+    <!-- 控件尺寸 -->
+    <dimen name="button_min_height">56dp</dimen>
+</resources>

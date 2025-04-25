@@ -1,0 +1,96 @@
+<resources>
+    <string name="app_name">GPSテスト</string>
+    <string name="title_home">ホーム</string>
+    <string name="title_dashboard">速度</string>
+    <string name="title_notifications">コンパス</string>
+    <string name="start">開始</string>
+    <string name="GPSTrackingService">GPS追跡サービス</string>
+    <string name="Trackingbackground">バックグラウンド位置追跡中</string>
+
+    <string name="start_tracking">追跡開始</string>
+    <string name="stop_tracking">追跡停止</string>
+    <string name="stop">停止</string>
+    <string name="reset">リセット</string>
+
+    <string name="location_info_title">リアルタイム位置情報</string>
+    <string name="satellites_info">衛星：%1$d(使用中)/%2$d(可視)</string>
+    <string name="coordinates_info">緯度：%1$.6f 経度：%2$.6f</string>
+    <string name="coordinates_placeholder">緯度：------ 経度：------</string>
+    <string name="altitude_info">高度：%1$.1f m</string>
+    <string name="altitude_placeholder">高度：- m</string>
+    <string name="speed_info">速度：%1$.1f km/h | %2$.1f m/s</string>
+    <string name="speed_placeholder">速度：- km/h | - m/s</string>
+
+    <string name="accuracy_info_full">水平/垂直精度：%1$.1f/%2$.1f m</string>
+    <string name="accuracy_info_basic">水平精度：%1$.1f m</string>
+    <string name="accuracy_placeholder">水平/垂直精度：-/- m</string>
+
+    <string name="gps_time_info">GPS時刻(%1$s)：%2$s</string>
+    <string name="gps_time_placeholder">GPS時刻(%1$s)：-------</string>
+    <string name="system_time_info">システム時刻：%1$s</string>
+
+    <string name="direction_north">北</string>
+    <string name="direction_northeast">北東</string>
+    <string name="direction_east">東</string>
+    <string name="direction_southeast">南東</string>
+    <string name="direction_south">南</string>
+    <string name="direction_southwest">南西</string>
+    <string name="direction_west">西</string>
+    <string name="direction_northwest">北西</string>
+    <string name="direction_unknown">方向不明</string>
+
+    <string name="pause">一時停止</string>
+    <string name="resume">再開</string>
+    <string name="time_format">時間：%s</string>
+    <string name="max_speed_format">最大：%s km/h</string>
+    <string name="distance_format">距離：%s km</string>
+    <string name="avg_speed_format">平均：%s km/h</string>
+    <string name="speed_kmh_format">%s km/h</string>
+    <string name="speed_ms_format">%s m/s</string>
+    <string name="direction_format">方向：%s(%.0f°)</string>
+    <string name="altitude_format">高度：%.1f m</string>
+    <string name="satellites_format">衛星数：%d/%d</string>
+
+    <string name="gps_status_strong">GPS：強(%.0f%%)</string>
+    <string name="gps_status_medium">GPS：中(%.0f%%)</string>
+    <string name="gps_status_weak">GPS：弱(%.0f%%)</string>
+    <string name="gps_status_lost">GPS：信号喪失</string>
+    <string name="thewaitbegin">待機開始中…</string>
+    <string name="privacy_policy_content">
+       【プライバシーポリシー】\n\n
+        1. 個人情報の収集と使用方法\n
+        - 位置情報：正確なGPS位置情報サービスを提供するため\n
+        - デバイス情報：アプリのパフォーマンスと互換性を最適化するため\n\n
+        2. 情報の保存と保護\n
+        - すべてのデータはデバイス上にのみ保存されます\n
+        - データをサーバーにアップロードすることはありません\n\n
+        3. あなたの権利\n
+        - 設定で位置情報の許可をいつでもオフにできます\n
+        - アプリをアンインストールしてすべてのデータを削除できます\n\n
+        最終更新：2025年4月
+    </string>
+
+    <string name="version_format">バージョン: %s</string>
+    <string name="version_unknown">バージョン: 不明</string>
+    <string name="language_default">簡体字中国語</string>
+    <string name="select_language">言語を選択</string>
+    <string name="cancel">キャンセル</string>
+    <string name="notifications_enabled">通知が有効です</string>
+    <string name="notifications_disabled">通知が無効です</string>
+
+    <string-array name="languages">
+        <item>簡体字中国語</item>
+        <item>日本語</item>
+        <item>English</item>
+        <item>Español</item>
+        <item>ドイツ語</item>
+        <item>フランス語</item>
+    </string-array>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="notifications">通知</string>
+    <string name="language">言語</string>
+    <string name="general_settings">一般設定</string>
+    <string name="enable_notifica">通知を有効にする</string>
+</resources>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GPS测试</string>
+    <string name="title_home">主测试</string>
+    <string name="title_dashboard">速度表</string>
+    <string name="title_notifications">指南针</string>
+    <string name="start">开始</string>
+    <string name="stop">停止</string>
+    <string name="reset">重置</string>
+    <string name="GPSTrackingService">GPS追踪服务</string>
+    <string name="Trackingbackground">在后台追踪您的位置</string>
+    <string name="start_tracking">开始定位</string>
+    <string name="stop_tracking">停止定位</string>
+    <string name="location_info_title">实时定位信息</string>
+    <string name="satellites_info">卫星数量: %1$d(使用中)/%2$d(发现)</string>
+    <string name="coordinates_info">纬度: %1$.6f 经度: %2$.6f</string>
+    <string name="coordinates_placeholder">纬度: ------ 经度: -----</string>
+    <string name="altitude_info">海拔: %1$.1f 米</string>
+    <string name="altitude_placeholder">海拔: - 米</string>
+    <string name="speed_info">速度: %1$.1f km/h | %2$.1f m/s</string>
+    <string name="speed_placeholder">速度: - km/h | - m/s</string>
+    <string name="accuracy_info_full">H/V精度: %1$.1f/%2$.1f 米</string>
+    <string name="accuracy_info_basic">水平精度: %1$.1f 米</string>
+    <string name="accuracy_placeholder">H/V精度: -/- 米</string>
+    <string name="gps_time_info">GPS时间(%1$s): %2$s</string>
+    <string name="gps_time_placeholder">GPS时间(%1$s): -------</string>
+    <string name="system_time_info">系统时间: %1$s</string>
+    <string name="direction_north">北</string>
+    <string name="direction_northeast">东北</string>
+    <string name="direction_east">东</string>
+    <string name="direction_southeast">东南</string>
+    <string name="direction_south">南</string>
+    <string name="direction_southwest">西南</string>
+    <string name="direction_west">西</string>
+    <string name="direction_northwest">西北</string>
+    <string name="direction_unknown">未知</string>
+
+    <string name="pause">暂停</string>
+    <string name="resume">继续</string>
+    <string name="time_format">时间：%s</string>
+    <string name="max_speed_format">最高：%s km/h</string>
+    <string name="distance_format">距离：%s km</string>
+    <string name="avg_speed_format">平均：%s km/h</string>
+    <string name="speed_kmh_format">%s km/h</string>
+    <string name="speed_ms_format">%s m/s</string>
+    <string name="direction_format">方向: %s(%.0f°)</string>
+    <string name="altitude_format">海拔: %.1f 米</string>
+    <string name="satellites_format">卫星数:%d/%d</string>
+    <string name="gps_status_strong">GPS：强(%.0f%%)</string>
+    <string name="gps_status_medium">GPS：中(%.0f%%)</string>
+    <string name="gps_status_weak">GPS：弱(%.0f%%)</string>
+    <string name="gps_status_lost">GPS：信号丢失</string>
+    <string name="thewaitbegin">等待开始...</string>
+    <string name="privacy_policy_content">
+       【隐私政策】\n\n
+        1. 我们如何收集和使用您的个人信息\n
+        - 位置信息：用于提供准确的GPS定位服务\n
+        - 设备信息：用于优化应用性能和兼容性\n\n
+        2. 信息存储与保护\n
+        - 所有数据仅存储在您的设备上\n
+        - 我们不会将您的数据上传到任何服务器\n\n
+        3. 您的权利\n
+        - 您可以随时在设置中关闭位置权限\n
+        - 您可以卸载应用以删除所有数据\n\n
+        最后更新：2025年4月
+    </string>
+
+    <string name="version_format">版本: %s</string>
+    <string name="version_unknown">版本: 未知</string>
+    <string name="language_default">简体中文</string>
+    <string name="select_language">选择语言</string>
+    <string name="cancel">取消</string>
+    <string name="notifications_enabled">通知已启用</string>
+    <string name="notifications_disabled">通知已禁用</string>
+
+    <string-array name="languages">
+        <item>简体中文</item>
+        <item>日文</item>
+        <item>English</item>
+        <item>Español</item>
+        <item>德语</item>
+        <item>法语</item>
+    </string-array>
+    <string name="settings">设置</string>
+    <string name="about">关于</string>
+    <string name="dark_mode">深色模式</string>
+    <string name="notifications">通知</string>
+    <string name="language">语言</string>
+    <string name="general_settings">通用设置</string>
+    <string name="enable_notifica">通知启用</string>
+</resources>

@@ -1,0 +1,15 @@
+<!-- res/drawable/rounded_button_background.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/button_pressed" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="@color/button_default" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+</selector>
