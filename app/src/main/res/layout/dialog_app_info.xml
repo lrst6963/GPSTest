@@ -29,6 +29,6 @@
         android:clickable="true"
         android:focusable="true"
         android:minHeight="48dp"
-        android:text="GitHub: https://github.com/your/repo"
+        android:text="GitHub: https://github.com/lrst6963/GPSTest"
         android:textColor="#2196F3" />
 </LinearLayout>
