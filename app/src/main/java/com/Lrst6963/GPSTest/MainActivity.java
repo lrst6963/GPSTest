@@ -69,7 +69,7 @@ public class MainActivity extends BaseActivity {
         // 2. 设置源码链接点击事件
         TextView tvSourceLink = dialogView.findViewById(R.id.tvSourceCodeLink);
         tvSourceLink.setOnClickListener(v -> {
-            String url = "https://github.com/your/repo";
+            String url = "https://github.com/lrst6963/GPSTest";
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
         });
